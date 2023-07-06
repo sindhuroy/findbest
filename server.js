@@ -18,12 +18,10 @@ const getelectronicdesc = require("./Categories/SmartPhonesWebsites/Gadget360Mod
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-const port = process.env.PORT;
+const port = 4000;
 // Define the API endpoint for medicine search
 app.get("/api/medicine/:name", async (req, res) => {
   const { name } = req.params;
-
   try {
     console.log("name : "+name);
     const searchResults = [];

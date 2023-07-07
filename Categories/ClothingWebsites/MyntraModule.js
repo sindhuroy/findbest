@@ -1,6 +1,8 @@
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+puppeteer.use(StealthPlugin());
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
+puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
 const getClothesMyntra = async (URL) => {
   try {
@@ -8,9 +10,6 @@ const getClothesMyntra = async (URL) => {
     const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
     const page = await browser.newPage();
   
-    puppeteer.use(StealthPlugin());
-    puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
-
     await page.goto(URL, { waitUntil: "domcontentloaded" });
     const ua =
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";

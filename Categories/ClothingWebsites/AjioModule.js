@@ -1,6 +1,8 @@
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+puppeteer.use(StealthPlugin());
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
+puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
 const getClothesAjio = async (URL) => {
   try {
@@ -8,9 +10,6 @@ const getClothesAjio = async (URL) => {
     const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
     const page = await browser.newPage();
   
-    puppeteer.use(StealthPlugin());
-    puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
-
     await page.goto(URL);
 
     await page.setViewport({ width: 1080, height: 1024 });

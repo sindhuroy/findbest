@@ -59,14 +59,17 @@ app.get("/api/clothing/:name", async (req, res) => {
   try {
     const searchResults = [];
 
-    const myntraResult = await getClothesMyntra(myntraURL);
+    //const myntraResult = await getClothesMyntra(myntraURL);
     const ajioResult = await getClothesAjio(ajioURL);
-    const snapdealResult = await getClothesSnapdeal(snapdealURL);
+    //const snapdealResult = await getClothesSnapdeal(snapdealURL);
 
-    searchResults.push(myntraResult);
+    //searchResults.push(myntraResult);
+    searchResults.push([]);
+    
     searchResults.push(ajioResult);
-    searchResults.push(snapdealResult);
-
+    //searchResults.push(snapdealResult);
+    searchResults.push([]);
+   
     // console.log(searchResults);
     res.json(searchResults);
   } catch (error) {

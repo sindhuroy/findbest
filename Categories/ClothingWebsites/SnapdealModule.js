@@ -7,12 +7,16 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 const getClothesSnapdeal = async (URL) => {
   try {
     const data = [];
-    const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({args: ['--no-sandbox'] });
     const page = await browser.newPage();
   
-    await page.goto(URL);
-
-    await page.setViewport({ width: 1080, height: 1024 });
+    await page.goto(URL, { waitUntil: "domcontentloaded" });
+    const ua =
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
+    await page.setUserAgent(ua);
+    await page.waitForSelector(
+      ".col-xs-6.favDp.product-tuple-listing.js-tuple"
+    );
     const element = ".col-xs-6.favDp.product-tuple-listing.js-tuple";
     const elements = await page.$$(element);
 

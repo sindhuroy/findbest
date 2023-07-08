@@ -7,16 +7,16 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 const getClothesMyntra = async (URL) => {
   try {
     const data = [];
-    const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({args: ['--no-sandbox'] });
     const page = await browser.newPage();
   
     await page.goto(URL, { waitUntil: "domcontentloaded" });
     const ua =
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
     await page.setUserAgent(ua);
-
-    // await page.setViewport({ width: 1080, height: 1024 });
-    await page.waitForSelector(".product-base");
+    await page.waitForSelector(
+      ".product-base"
+    );
     const elements = await page.$$(".product-base");
     let minLength = 6;
     if (minLength > elements.length) minLength = elements.length;

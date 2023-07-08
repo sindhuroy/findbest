@@ -19,7 +19,7 @@ const getClothesAjio = async (URL) => {
     );
     const elements = await page.$$(".item.rilrtl-products-list__item.item");
 
-    let minLength = 6;
+    let minLength = 9;
     if (minLength > elements.length) minLength = elements.length;
     for (let i = 0; i < minLength; i++) {
       const image = await page.evaluate(

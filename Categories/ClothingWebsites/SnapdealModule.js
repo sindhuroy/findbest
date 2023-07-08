@@ -20,7 +20,7 @@ const getClothesSnapdeal = async (URL) => {
     const element = ".col-xs-6.favDp.product-tuple-listing.js-tuple";
     const elements = await page.$$(element);
 
-    let minLength = 6;
+    let minLength = 9;
     if (minLength > elements.length) minLength = elements.length;
     for (let i = 0; i < minLength; i++) {
       const image = await page.evaluate(

@@ -66,5 +66,5 @@ const getClothesSnapdeal = async (URL) => {
     console.log(error);
   }
 };
-
+const URL = "https://www.snapdeal.com/search?keyword=jeans";
 module.exports = getClothesSnapdeal;

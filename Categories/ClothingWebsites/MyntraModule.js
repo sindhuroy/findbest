@@ -77,5 +77,5 @@ const getClothesMyntra = async (URL) => {
     console.log(error);
   }
 };
-
+const URL = "https://www.myntra.com/jeans";
 module.exports = getClothesMyntra;

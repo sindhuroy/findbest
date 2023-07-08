@@ -80,5 +80,5 @@ const getClothesAjio = async (URL) => {
     console.log(error);
   }
 };
-
+const URL = "https://www.ajio.com/search/?text=jeans";
 module.exports = getClothesAjio;

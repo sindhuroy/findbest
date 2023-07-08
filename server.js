@@ -7,7 +7,6 @@ const getmedicineAmazonDescription = require("./Categories/MedicineWebsites/Amaz
 const getmedicinepharmaDescription = require("./Categories/MedicineWebsites/PharmaeasyModule.js");
 const getmedicineApollopharmaDescription = require("./Categories/MedicineWebsites/ApolloPharmaModule.js");
 // clothing
-const getClothesMyntra = require("./Categories/ClothingWebsites/MyntraModule.js");
 const getClothesAjio = require("./Categories/ClothingWebsites/AjioModule.js");
 const getClothesSnapdeal = require("./Categories/ClothingWebsites/SnapdealModule.js");
 // grocery

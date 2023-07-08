@@ -7,7 +7,7 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 const getClothesAjio = async (URL) => {
   try {
     const data = [];
-    const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({args: ['--no-sandbox'] });
     const page = await browser.newPage();
   
     await page.goto(URL, { waitUntil: "domcontentloaded" });
